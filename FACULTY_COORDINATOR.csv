@@ -1,0 +1,16 @@
+F_ID,F_FNAME,F_LNAME,F_DEPT,F_PHNO,F_EMAIL,F_PASSWORD
+PESURRF001,Basavaraj,B M,SH,9123456789,bmbasavaraja@pes.edu,9123456789
+PESURRF002,Dr. Anitha ,N,SH,8765432190,nanitha@pes.edu,8765432190
+PESURRF003,Dr. N. Rajesh ,Mathivanan,ME,8998765432,rajesh.mathivanan@pes.edu,8998765432
+PESURRF004,Dr. Sudarshan ,TSB,CS,8345678901,sudarshan@pes.edu,8345678901
+PESURRF005,Dr. V. Sambasiva ,Rao,EC,8223456789,vsrao@pes.edu,8223456789
+PESURRF006,Dr. Krishna,V,ME,8890123456,vkrishna@pes.edu,8890123456
+PESURRF007,Dr.Vijendra ,Kumar,SH,8776543210,vijendrak@pes.edu,8776543210
+PESURRF008,Lata ,Pasupulety,SH,8567890123,latapasupulety@pes.edu,8567890123
+PESURRF009,Madhukar ,Narasimha,CIE,8987654321,cieoffice@pes.edu,8987654321
+PESURRF010,Preethi ,P,CS,8012345678,preethip@pes.edu,8012345678
+PESURRF011,Preet ,Kanwal,CS,8665432109,preetkanwal@pes.edu,8665432109
+PESURRF012,Neeta ,Senacha,DES,8234567890,neetasenacha@pes.edu,8234567890
+PESURRF013,Sanjeev ,Gurugopinath,EC,8889012345,sanjeevg@pes.edu,8889012345
+PESURRF014,Sindhu ,R Pai,CS,8976543210,sindhurpai@pes.edu,8976543210
+PESURRF015,Vadiraja ,Acharya,CS,8456789012,vadirajacharya@pes.edu,8456789012
