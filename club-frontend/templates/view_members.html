@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>View Members</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffcc;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .navbar {
+            background-color: brown;
+        }
+
+        .navbar-brand, .navbar-toggler-icon {
+            color: #fff;
+        }
+
+        .container {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        .list-group-item {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #d2b48c;
+        }
+
+        .list-group-item div {
+            width: 100%;
+        }
+
+        footer {
+            background-color: brown;
+            color: #fff;
+            position: absolute;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: brown;
+            border-color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #654321;
+            border-color: #654321;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light text-center py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: white;">ClubHub</a>
+            <div class="btn-group">
+                <a class="btn btn-primary ml-auto" href="login.html">Login</a>
+                <a class="btn btn-primary ml-auto" href="clubs.html">Clubs</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Members of {{ club_name }}</h1>
+        <div class="row">
+            {% for member in members %}
+                <div class="col-md-4">
+                    <li class="list-group-item">
+                        <div>
+                            <h6>Name: {{ member[0] }}</h6>
+                            <p>Email: {{ member[1] }}</p>
+                            <p>Semester: {{ member[2] }}</p>
+                            <p>Domain: {{ member[3] }}</p>
+                            <p>Role: {{ member[4] }}</p>
+                        </div>
+                    </li>
+                </div>
+                {% if loop.index % 3 == 0 %}
+                </div><div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3">
+        <p class="mb-0">&copy; 2023 ClubHub. All rights reserved. | Developed By Nidhi and Nikita</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <br>
+</body>
+
+</html>

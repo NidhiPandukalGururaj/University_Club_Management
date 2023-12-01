@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffe0;
+            color: #343a40;
+        }
+
+        .container {
+            margin-top: 10px;
+        }
+
+        h1, h2 {
+            color:black;
+            text-align: center; /* Center align the text */
+        }
+
+        .list-group-item {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d2b48c;
+        }
+
+        .btn-group {
+            margin-top: 10px;
+        }
+
+        .btn {
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: #8b4513;
+            border: 1px solid white;
+        }
+
+        .btn-primary:hover {
+            background-color: #8b4513;
+            border: 1px solid #8b4513;
+        }
+
+        .btn-success {
+            background-color: #8b4513;
+            border: 1px solid #8b4513;
+        }
+
+        .btn-success:hover {
+            background-color: #8b4513;
+            border: 1px solid #8b4513;
+        }
+        .navbar-brand, .navbar-toggler-icon {
+            color: #fff;
+        }
+        footer {
+            background-color: brown; /* Set the background color of the footer to brown */
+            color: #fff; /* Set the text color of the footer to white */
+            position: absolute; /* Push the footer to the bottom */
+            padding: 20px; 
+            width: 100%;/* Add some padding to the footer */
+        }
+
+    </style>
+    <title>Faculty Dashboard</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light text-center py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: white;">ClubHub</a>
+            <div class="btn-group">
+                <a class="btn btn-primary ml-auto" href="login.html">Login</a>
+                <a class="btn btn-primary ml-auto" href="clubs.html">Clubs</a>
+                <a class="btn btn-primary ml-auto" href="events.html">Events</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Welcome, {{ faculty_name }}</h1>
+        <h2>You are a coordinator of {{no_of_clubs[0]}} clubs @ PES UNIVERSITY</h2>
+        <h2>The clubs that you are a coordinator for are:</h2>
+        <ul class="list-group">
+            {% set club_list = clubs[0][0].split(',') %}
+            {% for club in club_list %}
+                <li class="list-group-item">
+                    <div>
+                        <h6>{{ club }}</h6>
+                    </div>
+                    <div class="btn-group" role="group">
+                       <!-- Update the link in success_f.html -->
+                        <a href="view_members.html/{{club}}" class="btn btn-primary">View Members</a>
+                        <a href="add_events.html" class="btn btn-success">Add Event</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <!-- Include Bootstrap and other JS libraries here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="bg-dark text-light text-center py-3">
+        <p class="mb-0">&copy; 2023 ClubHub. All rights reserved. | Developed By Nidhi and Nikita</p>
+    </footer>
+
+    <!-- Add Bootstrap JS and any other scripts you might need -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

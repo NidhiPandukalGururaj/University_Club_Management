@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffe0; /* Light yellow background */
+            color: #343a40;
+        }
+
+        .container {
+            margin-top: 10px;
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+        }
+
+        .form-group label {
+            color: black; /* Label text color */
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: brown; /* Brown button background */
+            border: 1px solid brown;
+        }
+
+        .btn-primary:hover {
+            background-color: #8b4513; /* Darker brown on hover */
+            border: 1px solid #8b4513;
+        }
+    </style>
+    <title>Add Event</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light text-center py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: white;">ClubHub</a>
+            <div class="btn-group">
+                <a class="btn btn-primary ml-auto" href="login.html">Login</a>
+                <a class="btn btn-primary ml-auto" href="clubs.html">Clubs</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Add Event</h1>
+        <br>
+        <form method="post">
+            <div class="form-group">
+                <label for="event_name">Event Name</label>
+                <input type="text" class="form-control" id="event_name" name="event_name" required>
+            </div>
+            <div class="form-group">
+                <label for="event_description">Event Description</label>
+                <textarea class="form-control" id="event_description" name="event_description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="event_date">Event Date</label>
+                <input type="date" class="form-control" id="event_date" name="event_date" required>
+            </div>
+            <div class="form-group">
+                <label for="event_starttime">Event Starts At</label>
+                <input type="time" class="form-control" id="event_stime" name="event_stime" required>
+            </div>
+            <div class="form-group">
+                <label for="event_endtime">Event Ends At</label>
+                <input type="time" class="form-control" id="event_etime" name="event_etime" required>
+            </div>
+            <div class="form-group">
+                <label for="event_location">Event To Be Held At</label>
+                <input type="text" class="form-control" id="event_loc" name="event_loc"  required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="event_budget">Budget</label>
+                <input type="text" class="form-control" id="event_budget" name="event_budget"  required></textarea>
+            </div>
+            <br>
+            <br>
+            <h1><strong>Guest who is attending the event</strong></h1>
+            <div class="form-group ">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group ">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group ">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            <div class="form-group ">
+                <label for="email">Email ID</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group ">
+                <label for="guestInfo">Guest Info</label>
+                <textarea class="form-control" id="guestInfo" name="guestInfo" rows="4" required></textarea>
+            </div>
+            <div class="form-group ">
+                <label for="guestAddr">Guest Address</label>
+                <textarea class="form-control" id="guestAddr" name="guestAddr" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary mx-auto d-block">Add Event</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap and other JS libraries here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

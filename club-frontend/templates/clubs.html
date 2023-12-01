@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffe0;
+            color: #000;
+            font-family: 'Times New Roman', Times, serif;
+            background-image: url();
+            background-size: 200% auto;
+        }
+
+        .navbar {
+            background-color: #8b4513;
+        }
+
+        .navbar-brand, .navbar-toggler-icon {
+            color: #fff;
+        }
+
+        .club-card {
+            border: 1px solid #8b4513;
+            border-radius: 10px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #d2b48c;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .club-logo {
+            max-width: 150px;
+            max-height: 150px;
+        }
+
+        .container {
+            margin-top: 10px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #8b4513;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #8b4513;
+            border-color: white;
+            
+        }
+
+        .modal-content {
+            background-color: #ffffe0;
+        }
+        h5{
+            align-content: center;
+        }
+        
+        .btn-primary:hover,.btn-primary:active {
+            background-color: #654321; /* Darker brown on hover */
+            border-color: #654321;
+        }
+        footer {
+            background-color: brown; /* Set the background color of the footer to brown */
+            color: #fff; /* Set the text color of the footer to white */
+            position: absolute; /* Push the footer to the bottom */
+            padding: 20px; 
+            width: 100%;/* Add some padding to the footer */
+        }
+
+    </style>
+    <title>Clubs @ PES</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light text-center py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: white;">ClubHub</a>
+            <div class="btn-group">
+                <a class="btn btn-primary ml-auto" href="login.html">Login</a>
+                <a class="btn btn-primary ml-auto" href="events.html">Events</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="page-title">Clubs @ PES</div>
+        <div class="row">
+            {% for club in clubs %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="club-card" data-toggle="modal" data-target="#clubModal{{ loop.index }}">
+                        <!--{% set converted_logo = club[2]|replace('\\\\', '\\')|replace("b'", '')|replace("'", '') %}
+                        <img src="{{converted_logo}}" alt="{{ club[0] }} Logo" class="club-logo">-->
+                        <h5 class="mt-2">{{ club[0] }}</h5>
+                        <p>{{ club[1] }}</p>
+                        <p><strong>Categories:</strong>
+                            {% if club[6] %}
+                                {% set categories_list = club[6].split(',') %}
+                                {% for category in categories_list %}
+                                    {{ category }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                No categories available.
+                            {% endif %}
+                        </p>
+                        
+                        <a href="{{club[4]}}" class="btn btn-primary">Visit {{ club[0] }}</a>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="clubModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="clubModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="clubModalLabel">More Details on {{club[0]}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Club Started On:</strong> {{ club[3] }}</p>
+                                <p><strong>Email:</strong> {{ club[5] }}</p>
+                                <!-- Add more details as needed -->
+                               <p><strong>Social Media</strong>
+                               {% for l in link %}
+                               {% if l[0]==club[0] %}
+                               <a href="{{l[1]}}" class="btn btn-primary">Instagram </a>
+                               {% endif %}
+                               {% endfor %}
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <!-- Add additional buttons if needed -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="bg-dark text-light text-center py-3" background-color="brown">
+        <p class="mb-0">&copy; 2023 ClubHub. All rights reserved. | Developed By Nidhi and Nikita</p>
+    </footer>
+
+    <!-- Add Bootstrap JS and any other scripts you might need -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

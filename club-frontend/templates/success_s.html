@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Student Dashboard</title>
+    <style>
+         body {
+            background-color: #ffffcc; /* Updated background color */
+            color: #8B4513; /* Brown color */
+        }
+        .container {
+            margin-top: 10px;
+        }
+
+        h2, h3 {
+            color: black;
+            align-content: center;
+        }
+
+        .list-group-item {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-group {
+            display: flex;
+        }
+        .btn-group {
+            margin-top: 10px;
+        }
+
+        .btn {
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .btn-secondary {
+            background-color: #8B4513; /* Updated button color */
+            border: 1px solid #8B4513; /* Updated border color */
+        }
+
+        .btn-secondary:hover {
+            background-color: #8B4513; /* Updated hover color */
+            border: 1px solid #e4660c; /* Updated hover border color */
+        }
+
+        .btn-primary {
+            background-color: #8B4513;
+            border: 1px solid white;
+        }
+
+        .btn-primary:hover {
+            background-color: #8B4513;
+            border: 1px solid #8B4513;
+        }
+
+        .badge-primary {
+            background-color: #8B4513;
+        }
+
+        .badge-failure{
+            background-color: red;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+        }
+
+        #notHeadModalLabel {
+            color: #dc3545;
+        }
+
+        #notHeadModal .modal-content {
+            border-color: #dc3545;
+        }
+
+        #notHeadModal .btn-secondary {
+            background-color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+
+        #notHeadModal .btn-secondary:hover {
+            background-color: #bd2130;
+            border: 1px solid #bd2130;
+        }
+        .navbar {
+            background-color:#ffffe0 ;
+        }
+
+        .navbar-brand, .navbar-toggler-icon {
+            color:#ffffe0 ;
+        }
+        footer {
+            background-color: brown; /* Set the background color of the footer to brown */
+            color: #fff; /* Set the text color of the footer to white */
+            position: absolute; /* Push the footer to the bottom */
+            padding: 20px; 
+            width: 100%;/* Add some padding to the footer */
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light text-center py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: white;">ClubHub</a>
+            <div class="btn-group">
+                <a class="btn btn-primary ml-auto" href="login.html">Login</a>
+                <a class="btn btn-primary ml-auto" href="clubs.html">Clubs</a>
+                <a class="btn btn-primary ml-auto" href="events.html">Events</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Welcome, {{ student_name }}</h2>
+                <h3>You are currently part of {{ no_of_clubs }} clubs</h3>
+                <h3>Your memberships are as follows</h3>
+                <ul class="list-group">
+                    {% for club in clubs %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <p><strong>Club:</strong>{{ club[0] }}</p>
+                                <p><strong>From:</strong> {{ club[2] }}</p>
+                                <p><strong>Domain:</strong> {{ club[3] }}</p>
+                            </div>
+                            <div>
+                                <span class="badge badge-primary">{{ club[1] }}</span>
+                                <a href="{{ url_for('view_members', club_name=club[0]) }}" class="btn btn-secondary btn-sm">View Members</a>
+                                {% if club[1]=='CLUB HEAD' %}
+                                <a href="{{ url_for('head_page', club_name=club[0]) }}" class="btn btn-primary btn-sm">Head Page</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="col-md-8 offset-md-2">
+        {% if past_record %}
+        <h3>Your Club Membership History</h3>
+        <ul class="list-group">
+            {% for record in past_record %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <p><strong>Club:</strong> {{ record[1] }}</p>
+                        <p><strong>Domain:</strong> {{ record[0] }}</p>
+                        <p><strong>From:</strong> {{ record[2] }}</p>
+                        <p><strong>To:</strong> {{ record[3] }}</p>
+                        <p><strong>Role:</strong> {{ record[4] }}</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-failure">Not Active</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Not Head Student Modal -->
+    <div class="modal fade" id="notHeadModal" tabindex="-1" role="dialog" aria-labelledby="notHeadModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notHeadModalLabel">Access Denied</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    You do not have access to this page. You must be a "HEAD" student to access it.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="bg-dark text-light text-center py-3">
+        <p class="mb-0">&copy; 2023 ClubHub. All rights reserved. | Developed By Nidhi and Nikita</p>
+    </footer>
+
+    <!-- Add Bootstrap JS and any other scripts you might need -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

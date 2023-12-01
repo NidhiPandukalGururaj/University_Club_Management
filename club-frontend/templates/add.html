@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Add Members</title>
+    <style>
+        body {
+            background-color: #ffffe0;
+            font-family: 'Times New Roman', Times, serif;
+            color: black;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #8b4513;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: brown;
+            border: 1px solid brown;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        button:hover {
+            background-color: #8b4513;
+            border: 1px solid #8b4513;
+        }
+        .btn-primary,.btn-primary:hover {
+            background-color: brown; /* Brown button background */
+            border: 1px solid brown;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Member to {{club_name}}</h1>
+
+        <form method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" class="form-control" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="domainName">Domain Name</label>
+                    <input type="text" class="form-control" id="domainName" name="domainName" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+      
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email ID</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dept">Department</label>
+                    <input type="text" class="form-control" id="dept" name="dept" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="semester">Semester</label>
+                    <input type="text" class="form-control" id="semester" name="semester" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="role">Role in the Club</label>
+                    <input type="text" class="form-control" id="role" name="role" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="pasword">Password</label>
+                    <input type="text" class="form-control" id="password" name="password" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary mx-auto d-block">Add Member</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap and other JS libraries here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

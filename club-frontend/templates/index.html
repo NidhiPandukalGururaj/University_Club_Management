@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffcc; /* Yellow background */
+            color: #343a40;
+            margin: 0; /* Remove default margin */
+            background-image: url("https://tweetjobsearch.com/wp-content/uploads/2021/02/productive-hobbies-940x588-1.jpg");
+            background-size: 100% auto;
+            width: 100%;
+        }
+
+        .navbar {
+            background-color: #8B4513; /* Brown color for the navbar */
+        }
+
+        .navbar-brand, .navbar-toggler-icon {
+            color: #fff; /* White text color for navbar */
+        }
+
+        .jumbotron {
+            background-color: rgba(139, 69, 19, 0.5); /* Brown color with 70% opacity */
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+
+        }
+
+
+        .list-group-item {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .list-group-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+        }
+
+        #clubLogo {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .btn-group {
+            display: flex;
+        }
+
+        .btn-primary {
+            background-color: #9f5c2d; /* Brown color for the buttons */
+            border-color: #8B4513;
+            flex: 1; /* Equal width for buttons in the group */
+        }
+
+        .btn-primary:hover {
+            background-color: #654321; /* Darker brown on hover */
+            border-color: #654321;
+        }
+        h1{
+            text-align: center;
+            font-weight: bold;
+        }
+        footer {
+            background-color: brown; /* Set the background color of the footer to brown */
+            color: #fff; /* Set the text color of the footer to white */
+            bottom: 0;
+            position: absolute; /* Push the footer to the bottom */
+            padding: 20px; 
+            width: 100%;/* Add some padding to the footer */
+        }
+
+    </style>
+    <title>ClubHub</title>
+</head>
+<body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light text-center py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color: white;">ClubHub</a>
+            <div class="btn-group">
+                <a class="btn btn-primary ml-auto" href="login.html">Login</a>
+                <a class="btn btn-primary ml-auto" href="clubs.html">Clubs</a>
+                <a class="btn btn-primary ml-auto" href="events.html">Events</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="jumbotron text-center">
+                    <h1>Welcome to ClubHub</h1>
+                    <p class="lead">
+                        Welcome to Club Hub, your ultimate destination for all things clubs and events at our university!
+                        Whether you're a dedicated faculty coordinator, an enthusiastic club member, or a student eager to
+                        explore the vibrant campus life, Club Hub is your go-to platform for staying in the loop.
+                    </p>
+                    <p class="lead">
+                        No matter your role, Club Hub ensures that you are well-informed and connected.
+                        Get ready to enhance your university experience by unlocking the full potential of
+                        clubs and events with Club Hub – because campus life is meant to be vibrant, dynamic,
+                        and full of exciting possibilities!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light text-center py-3">
+        <p class="mb-0">&copy; 2023 ClubHub. All rights reserved. | Developed By Nidhi and Nikita</p>
+    </footer>
+
+    <!-- Add Bootstrap JS and any other scripts you might need -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
